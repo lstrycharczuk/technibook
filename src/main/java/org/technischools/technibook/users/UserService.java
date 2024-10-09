@@ -1,15 +1,28 @@
 package org.technischools.technibook.users;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.technischools.technibook.users.api.SaveUserRequest;
+
+import java.util.Date;
+import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    public User getUser(String id) {
-        if("ca3bd1ba-4973-4de4-9525-6fa76672c0ce".equals(id)) {
-            return new User("ca3bd1ba-4973-4de4-9525-6fa76672c0ce", "Laura", "haslo");
-        }
-        else {
-            throw new RuntimeException();
-        }
+    private final UserRepository userRepository;
+
+    public User getUserByUuid(String uuid){
+        return userRepository.findByUuid(uuid);
+    }
+
+    public void saveUser(SaveUserRequest saveUserRequest){
+        User user = User.builder()
+                .uuid(UUID.randomUUID().toString())
+                .createdDate(new Date())
+                .email(saveUserRequest.getEmail())
+                .password(saveUserRequest.getPassword())
+                .build();
+        userRepository.save(user);
     }
 }

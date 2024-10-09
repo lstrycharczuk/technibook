@@ -1,4 +1,4 @@
-package org.technischools.technibook.users;
+package org.technischools.technibook.posts;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,14 +7,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Data
 @Builder
-@Document("users")
-public class User {
+@Data
+@Document("posts")
+public class Post {
     @Id
     private String id;
-    private String uuid;
     private Date createdDate;
-    private String email;
-    private String password;
+    private Date updatedDate;
+    private String uuid;
+    private String userUuid;
+    private String content;
 }
