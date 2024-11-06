@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.technischools.technibook.users.api.PostVisibility;
 
 import java.util.Date;
 
@@ -18,4 +19,5 @@ public class Post {
     private String uuid;
     private String userUuid;
     private String content;
+    private PostVisibility visibility;
 }

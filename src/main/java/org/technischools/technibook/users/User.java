@@ -7,14 +7,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Data
 @Builder
+@Data
 @Document("users")
 public class User {
     @Id
     private String id;
-    private String uuid;
     private Date createdDate;
+    private Date updatedDate;
+    private String uuid;
     private String email;
     private String password;
+    private boolean activated;
+    private String name;
+    private String surname;
+    private Date birthDate;
+    private boolean sex;
 }
