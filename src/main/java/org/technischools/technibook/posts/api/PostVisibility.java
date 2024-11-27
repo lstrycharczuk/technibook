@@ -1,4 +1,4 @@
-package org.technischools.technibook.users.api;
+package org.technischools.technibook.posts.api;
 
 public enum PostVisibility {
     PUBLIC,

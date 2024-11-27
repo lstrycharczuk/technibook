@@ -6,6 +6,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PostRepository extends MongoRepository<Post, String>{
-    List<Post> findByUserUuid(String userUuid);
-    Optional<Post> findByUuid(String uuid);
+    Post findByUuid(String uuid);
 }
